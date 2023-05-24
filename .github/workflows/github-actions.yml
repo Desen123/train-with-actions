@@ -20,4 +20,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with flake8
         run : |
-          find . -type f -name "*.py" -print0 | xargs -0 flake8 --format='%(path)s::%(row)d,%(col)d::%(code)s::%(text)s'
+          find . -type f -name "*.py" -print0 | xargs -0 python -m flake8 --format='%(path)s::%(row)d,%(col)d::%(code)s::%(text)s'
