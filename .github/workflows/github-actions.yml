@@ -1,0 +1,23 @@
+name: Python-lint
+run-name: ${{ github.actor }} run linting code of Python
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This auto triggered by a ${{ github.event_name }}. This is run on a ${{ runner.os }}. Build from branch ${{ github.ref }} at repository ${{ github.repository }}"
+      - name: Check out repo code
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11" 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run : |
+          find . -type f -name "*.py" -print0 | xargs -0 flake8 --format='%(path)s::%(row)d,%(col)d::%(code)s::%(text)s'
