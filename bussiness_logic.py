@@ -52,6 +52,7 @@ def func4():
 
 def get_lti_msg():
     print(lti)
+    
 
 
 def func8(arg5, arg6):
