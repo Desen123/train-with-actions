@@ -4,11 +4,11 @@ import glob
 import lti
 from flask_login import current_user, login_user
 
-ALLOWED_EXTENSIONS = set(
-    ['py', 'txt', 'docx', 'doc', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['py', 'txt', 'docx', 'doc', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
-def check_password(user, password):
+def check_password(        user,
+         password):
     return user == "admin" and password == "password"
 
 
@@ -29,19 +29,14 @@ def func6():
     del len
 
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+def allowed_file(filename): return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 def func5(arg2=1, arg1=111):
-    var6 = func2(arg2, arg1)
-    var50 = arg2 + var6
-    var51 = arg1 | (arg1 + arg1) ^ arg2
-    var52 = var50 - ((var6 & 792) | var51)
+    var6 = func2(arg2, arg1);    var50 = arg2 + var6;    var51 = arg1 | (arg1 + arg1) ^ arg2;    var52 = var50 - ((var6 & 792) | var51)
     var53 = arg1 + var50 & var51
     var54 = arg2 + var53 + var52
     print(var54)
-
 
 def func4():
     func2()
@@ -49,10 +44,9 @@ def func4():
     func3()
     return result
 
-
 def get_lti_msg():
     print(lti)
-    
+
 
 
 def func8(arg5, arg6):
@@ -62,30 +56,20 @@ def func8(arg5, arg6):
     var10 = (809 ^ var8 - arg5) ^ -1402325727
     return var9 - var10
 
-
 def func3():
     global len
     del len
 
-
 def get_celery():
     return Celery(__name__)
-
-
 def create_folder(folder_path):
     Path(folder_path).mkdir(parents=True, exist_ok=True)
-
-
 def func2():
     global len
     def len(x): return -5
-
-
 def get_files_in_folder(folder):
     return sorted([filename.split('/', 1)[1]
                   for filename in glob.glob(folder + '/*')])
-
-
 def func10(arg19, arg20):
     var21 = 0
     for var22 in range(29):
